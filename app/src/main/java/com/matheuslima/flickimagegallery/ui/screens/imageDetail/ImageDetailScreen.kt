@@ -5,6 +5,8 @@ package com.matheuslima.flickimagegallery.ui.screens.imageDetail
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -17,6 +19,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.AssistChip
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -89,12 +92,13 @@ fun ImageDetailScreen(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ImageContent(
     modifier: Modifier,
     imageDetailViewModel: ImageDetailViewModel,
     date: String,
-    tags: String,
+    tags: List<String>,
     innerpadding: PaddingValues
 ) {
     Column(
@@ -138,7 +142,16 @@ private fun ImageContent(
                     imageDetailViewModel.description.value
             })
             TitleText(stringResource(R.string.tags))
-            Text(text = tags, modifier = Modifier.padding(bottom = 10.dp))
+            FlowRow {
+                tags.forEach {
+                    AssistChip(
+                        onClick = {},
+                        label = {
+                            Text(text = it)
+                        }
+                    )
+                }
+            }
         }
 
     }

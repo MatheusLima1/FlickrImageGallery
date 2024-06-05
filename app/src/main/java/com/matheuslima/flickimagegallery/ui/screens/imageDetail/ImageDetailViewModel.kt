@@ -23,8 +23,8 @@ class ImageDetailViewModel (private val sharedViewModel: SharedViewModel) :
     private val _description = MutableStateFlow<Spanned?>(null)
     val description: StateFlow<Spanned?> = _description
 
-    private val _tags = MutableStateFlow(sharedViewModel.imageSelected.value.tags ?: "")
-    val tags: StateFlow<String> = _tags
+    private val _tags = MutableStateFlow<List<String>>(listOf())
+    val tags: StateFlow<List<String>> = _tags
 
     val image = sharedViewModel.imageSelected.value.media?.m ?: ""
     val contentDescription = sharedViewModel.imageSelected.value.title ?: ""
@@ -56,6 +56,10 @@ class ImageDetailViewModel (private val sharedViewModel: SharedViewModel) :
 
     private fun parseTags() {
 
+        val split = sharedViewModel.imageSelected.value.tags?.split(" ")
+        val list = mutableListOf<String>()
+        split?.map { list.add(it) }
+        _tags.value = list
     }
 
     private fun parseDescription() {
