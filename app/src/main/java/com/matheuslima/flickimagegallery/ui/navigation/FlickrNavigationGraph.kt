@@ -1,10 +1,11 @@
-package com.matheuslima.flickimagegallery.ui.screens
+package com.matheuslima.flickimagegallery.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.matheuslima.flickimagegallery.ui.screens.Routes
 import com.matheuslima.flickimagegallery.ui.screens.gallery.GalleryScreen
 import com.matheuslima.flickimagegallery.ui.screens.imageDetail.ImageDetailScreen
 import com.matheuslima.flickimagegallery.ui.screens.shared.SharedViewModel
