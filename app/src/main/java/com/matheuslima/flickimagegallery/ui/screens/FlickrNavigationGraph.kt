@@ -19,7 +19,7 @@ fun FlickrNavigationGraph() {
             GalleryScreen(navController, sharedViewModel = sharedViewModel)
         }
         composable(Routes.IMAGE_DETAILS) {
-            ImageDetailScreen(navController)
+            ImageDetailScreen(navController, sharedViewModel = sharedViewModel)
         }
     }
 }
