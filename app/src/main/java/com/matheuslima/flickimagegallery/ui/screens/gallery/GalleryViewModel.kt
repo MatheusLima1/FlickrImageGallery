@@ -46,7 +46,7 @@ class GalleryViewModel @Inject constructor(
     }
 
     init {
-        getImages("")
+        getImages("porcupine")
     }
 
 }
